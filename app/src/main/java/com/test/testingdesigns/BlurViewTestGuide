@@ -1,0 +1,58 @@
+Sept.17.2023 newest code
+Working minSdk 21 targetSdk 32
+
+How does it work:
+We have the library from this link, for more info copy this link.
+    https://github.com/Dimezis/BlurView
+
+BlurView can be used as a regular FrameLayout. It blurs its underlying content and draws it as a
+background for its children. The children of the BlurView are not blurred. BlurView redraws its
+blurred content when changes in view hierarchy are detected (draw() called). It honors its
+position and size changes, including view animation and property animation.
+
+=============================
+In this project, our goal is to be able to have a blur and transparent image however
+and whenever we like. (Note: this is the only example being tested, typed below.)
+The design should be with any good background(to also see the clear changes), and have a
+white image with transparency of at least 10% and is blurred with at least 5% and display
+something inside it so we can see how it works.
+
+Basic use of the BlurView: (we used here)
+------------------------------------------------
+If you haven't inserted this two on your project then you may proceed. But if it's already
+done then you can skip this step.
+
+First insert this on could be settings.gradle inside your repositories
+    maven { url"https://jitpack.io" }
+
+Then insert this dependency in your build.gradle:app or module:yourApp
+    implementation 'com.github.Dimezis:BlurView:version-2.0.3'
+-------------------------------------------------
+Creating a layout: "res/layout/blur_view_test.xml"
+We are using constraint layout, setting a background of yellow shade.
+Following with a picture of a woman, constraint all sides to the parent, to place it on center.
+Then we are calling for the library or widget BlurView in this form:
+    <eightbitlab.com.blurview.BlurView
+            android:id="@+id/blurView"
+            etc.>
+
+    </eightbitlab.com.blurview.BlurView>
+
+BlurView is the actual view to be called so we will be able to execute the
+blurriness of the content.
+
+However, if you wanted it to have some color or the transparency you wanted or we wanted,
+we can use the attribute:
+    app:blurOverlayColor="#1affffff"
+
+From here we're able to set a color white background with the opacity of 10%
+If you want more knowledge about opacity you can refer here:
+    https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
+
+And if you have noticed, we have a sharp corner. If you want to change that, we can always use
+drawable. Have your own desired shape, your desired color with opacity, add some corners or strokes.
+If we use drawable, we can delete the blurOverlayColor and change it to
+    android:background="@drawable/edit_bg" (example, res/drawable/edit_bg)
+
+After that we'll go on the main file for further explanation.
+    java/com.test.testingdesigns/BlurViewTest
